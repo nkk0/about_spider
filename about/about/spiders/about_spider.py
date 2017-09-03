@@ -9,8 +9,10 @@ class AboutSpider(CrawlSpider):
     start_urls = ['http://quotes.toscrape.com']
 
     rules = (
-        Rule(LinkExtractor(allow='quotes.toscrape.com/author'), callback='parse_item'),
-        Rule(LinkExtractor(allow='quotes.toscrape.com/page'), follow=True)
+        Rule(LinkExtractor(allow='quotes.toscrape.com/author'),
+             callback='parse_item'),
+        Rule(LinkExtractor(allow='quotes.toscrape.com/page'),
+             follow=True)
     )
 
     def parse_item(self, response):
